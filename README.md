@@ -1,2 +1,9 @@
-# docker-gethash
-Simple Container to get a random Password Hash
+# GetHash
+
+```docker build -t toughiq/gethash . ```
+
+## Single Hash
+```docker run --rm toughiq/gethash```
+
+## Multiple Hashes
+```docker run --rm toughiq/gethash multi```

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "" == "$1" ]
+then
+        PASS=`pwgen -c -s -B -n 25 1`
+        echo "Passwort: $PASS"
+
+else
+        PASS="$1"
+fi
+
+
+echo -n "Shell: "
+python -c 'import crypt; print(crypt.crypt("'$PASS'", "$6$'`pwgen -c -s -B -n 8 1`'"))'
+echo -n "MySQL: "
+python -c 'from hashlib import sha1; print "*" + sha1(sha1("'$PASS'").digest()).hexdigest().upper()'
+
+
+echo ""
